@@ -11,7 +11,6 @@
 
     :root {
       --orange: #F97316;
-      --pink: #E11D48;
       --bg: #0D0D0D;
       --bg-card: #1A1A1A;
       --text: #FFFFFF;
@@ -26,18 +25,15 @@
       color: var(--text);
       min-height: 100vh;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      padding: 2rem;
+      padding: 3rem 1.5rem;
     }
 
-    .container {
-      width: 100%;
-      max-width: 560px;
-    }
+    .container { width: 100%; max-width: 560px; }
 
     .logo {
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: 800;
       text-transform: lowercase;
       margin-bottom: 2rem;
@@ -49,13 +45,14 @@
       font-size: 1.75rem;
       font-weight: 900;
       letter-spacing: -0.03em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .subtitle {
       color: var(--text-muted);
       font-size: 0.9rem;
       margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
     .card {
@@ -63,16 +60,16 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 2rem;
+      margin-bottom: 1.5rem;
     }
 
-    .field {
-      margin-bottom: 1.25rem;
-    }
+    .field { margin-bottom: 1.25rem; }
+    .field:last-child { margin-bottom: 0; }
 
     label {
       display: block;
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-size: 0.78rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-muted);
@@ -91,21 +88,13 @@
       transition: border-color 0.2s;
       outline: none;
     }
-
-    input:focus, textarea:focus, select:focus {
-      border-color: var(--orange);
-    }
-
+    input:focus, textarea:focus, select:focus { border-color: var(--orange); }
     select option { background: #1A1A1A; }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
+    textarea { resize: vertical; min-height: 110px; }
 
     .btn {
       width: 100%;
-      padding: 0.875rem;
+      padding: 0.9rem;
       background: var(--gradient);
       color: white;
       border: none;
@@ -114,13 +103,91 @@
       font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
-      margin-top: 0.5rem;
       transition: opacity 0.2s;
     }
     .btn:hover { opacity: 0.88; }
-    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    .btn-secondary {
+    /* RESULTADO */
+    #resultado { display: none; }
+
+    .steps { margin-bottom: 1.5rem; }
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .step-num {
+      min-width: 28px;
+      height: 28px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .step-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding-top: 0.3rem;
+      line-height: 1.5;
+    }
+    .step-text strong { color: var(--text); }
+
+    .json-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: #aaa;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 200px;
+      overflow-y: auto;
+      margin: 0.75rem 0;
+    }
+
+    .btn-copy {
+      width: 100%;
+      padding: 0.75rem;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      margin-bottom: 0.75rem;
+    }
+    .btn-copy:hover { border-color: var(--orange); background: rgba(249,115,22,0.05); }
+    .btn-copy.copied { border-color: #22c55e; color: #22c55e; }
+
+    .btn-github {
+      display: block;
+      width: 100%;
+      padding: 0.9rem;
+      background: #24292e;
+      color: white;
+      border: 1px solid #444;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-github:hover { background: #333; }
+
+    .btn-novo {
       width: 100%;
       padding: 0.75rem;
       background: transparent;
@@ -132,69 +199,19 @@
       font-weight: 600;
       cursor: pointer;
       margin-top: 0.75rem;
-      transition: border-color 0.2s, color 0.2s;
+      transition: color 0.2s;
     }
-    .btn-secondary:hover { border-color: var(--text-muted); color: var(--text); }
-
-    .alert {
-      padding: 0.875rem 1rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 1.25rem;
-      display: none;
-    }
-    .alert.success {
-      background: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      color: #4ade80;
-    }
-    .alert.error {
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      color: #f87171;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 1.5rem 0;
-    }
-
-    .token-hint {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 0.4rem;
-    }
-
-    #screen-token, #screen-form { display: none; }
+    .btn-novo:hover { color: var(--text); }
   </style>
 </head>
 <body>
 <div class="container">
-  <div class="logo">publi<span>.</span>nation × web summit <span style="color:#444">/ admin</span></div>
+  <div class="logo">publi<span>.</span>nation × web summit <span style="color:#333">/ admin</span></div>
 
-  <!-- TELA: TOKEN -->
-  <div id="screen-token">
-    <h1>Configurar acesso</h1>
-    <p class="subtitle">Cole seu token do GitHub para começar a publicar.</p>
-    <div class="card">
-      <div class="field">
-        <label>Token do GitHub</label>
-        <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
-        <p class="token-hint">O token fica salvo só neste navegador. Nunca é enviado para nenhum servidor.</p>
-      </div>
-      <button class="btn" onclick="saveToken()">Salvar e entrar</button>
-    </div>
-  </div>
-
-  <!-- TELA: FORMULÁRIO -->
-  <div id="screen-form">
+  <!-- FORMULÁRIO -->
+  <div id="tela-form">
     <h1>Novo post</h1>
-    <p class="subtitle">Preencha e publique direto no site.</p>
-
-    <div id="alert" class="alert"></div>
-
+    <p class="subtitle">Preencha e publique direto no site — sem precisar de código.</p>
     <div class="card">
       <div class="field">
         <label>Título</label>
@@ -218,121 +235,98 @@
         <label>Resumo</label>
         <textarea id="resumo" placeholder="Escreva aqui o conteúdo do post..."></textarea>
       </div>
-      <button class="btn" id="publish-btn" onclick="publicar()">Publicar post</button>
-      <button class="btn-secondary" onclick="trocarToken()">Trocar token</button>
     </div>
+    <button class="btn" onclick="gerar()">Gerar post →</button>
+  </div>
+
+  <!-- RESULTADO -->
+  <div id="resultado">
+    <h1>Quase lá! 🎉</h1>
+    <p class="subtitle">Só 2 passos rápidos para publicar no site.</p>
+
+    <div class="card">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Copie o JSON abaixo</strong></div>
+        </div>
+      </div>
+      <div class="json-box" id="json-output"></div>
+      <button class="btn-copy" id="btn-copy" onclick="copiar()">📋 Copiar JSON</button>
+
+      <div class="steps" style="margin-top:1.25rem">
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <strong>Abra o editor do GitHub</strong>, cole o JSON copiado no lugar do conteúdo atual e clique em <strong>Commit changes</strong>
+          </div>
+        </div>
+      </div>
+      <a class="btn-github" href="https://github.com/publination/websummit/edit/main/posts.json" target="_blank">
+        ✏️ Abrir editor no GitHub
+      </a>
+    </div>
+
+    <button class="btn-novo" onclick="novoPost()">← Escrever outro post</button>
   </div>
 </div>
 
 <script>
-const REPO = 'publination/websummit';
-const FILE = 'posts.json';
-
-function init() {
-  const token = localStorage.getItem('ws_token');
-  if (token) {
-    showForm();
-  } else {
-    showTokenScreen();
-  }
-  // Pré-preenche a data de hoje
   document.getElementById('data').value = new Date().toISOString().split('T')[0];
-}
 
-function showTokenScreen() {
-  document.getElementById('screen-token').style.display = 'block';
-  document.getElementById('screen-form').style.display = 'none';
-}
+  let postsAtuais = [];
 
-function showForm() {
-  document.getElementById('screen-token').style.display = 'none';
-  document.getElementById('screen-form').style.display = 'block';
-}
-
-function saveToken() {
-  const token = document.getElementById('token-input').value.trim();
-  if (!token) { alert('Cole o token antes de continuar.'); return; }
-  localStorage.setItem('ws_token', token);
-  showForm();
-}
-
-function trocarToken() {
-  localStorage.removeItem('ws_token');
-  showTokenScreen();
-}
-
-function showAlert(type, msg) {
-  const el = document.getElementById('alert');
-  el.className = 'alert ' + type;
-  el.textContent = msg;
-  el.style.display = 'block';
-  setTimeout(() => el.style.display = 'none', 5000);
-}
-
-async function publicar() {
-  const titulo = document.getElementById('titulo').value.trim();
-  const tag    = document.getElementById('tag').value;
-  const data   = document.getElementById('data').value;
-  const resumo = document.getElementById('resumo').value.trim();
-
-  if (!titulo || !resumo || !data) {
-    showAlert('error', 'Preencha todos os campos antes de publicar.');
-    return;
+  async function carregarPosts() {
+    try {
+      const res = await fetch('posts.json?v=' + Date.now());
+      postsAtuais = await res.json();
+    } catch {
+      postsAtuais = [];
+    }
   }
 
-  const btn = document.getElementById('publish-btn');
-  btn.disabled = true;
-  btn.textContent = 'Publicando...';
+  carregarPosts();
 
-  const token = localStorage.getItem('ws_token');
-  const headers = {
-    'Authorization': `token ${token}`,
-    'Content-Type': 'application/json'
-  };
+  function gerar() {
+    const titulo = document.getElementById('titulo').value.trim();
+    const tag    = document.getElementById('tag').value;
+    const data   = document.getElementById('data').value;
+    const resumo = document.getElementById('resumo').value.trim();
 
-  try {
-    // Busca o arquivo atual
-    const getRes = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE}`, { headers });
-    const getJson = await getRes.json();
+    if (!titulo || !resumo || !data) {
+      alert('Preencha todos os campos antes de continuar.');
+      return;
+    }
 
-    if (!getRes.ok) throw new Error(getJson.message || 'Erro ao buscar posts.json');
+    const novoId = postsAtuais.length > 0 ? Math.max(...postsAtuais.map(p => p.id)) + 1 : 1;
+    const novoPost = { id: novoId, titulo, data, tag, resumo };
+    const listaAtualizada = [novoPost, ...postsAtuais];
 
-    const currentContent = atob(getJson.content.replace(/\n/g, ''));
-    const posts = JSON.parse(currentContent);
-    const newId = posts.length > 0 ? Math.max(...posts.map(p => p.id)) + 1 : 1;
+    document.getElementById('json-output').textContent =
+      JSON.stringify(listaAtualizada, null, 2);
 
-    posts.unshift({ id: newId, titulo, data, tag, resumo });
+    document.getElementById('tela-form').style.display = 'none';
+    document.getElementById('resultado').style.display = 'block';
+  }
 
-    const newContent = btoa(unescape(encodeURIComponent(JSON.stringify(posts, null, 2))));
-
-    // Salva o arquivo atualizado
-    const putRes = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE}`, {
-      method: 'PUT',
-      headers,
-      body: JSON.stringify({
-        message: `post: ${titulo}`,
-        content: newContent,
-        sha: getJson.sha
-      })
+  function copiar() {
+    const texto = document.getElementById('json-output').textContent;
+    navigator.clipboard.writeText(texto).then(() => {
+      const btn = document.getElementById('btn-copy');
+      btn.textContent = '✅ Copiado!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 Copiar JSON';
+        btn.classList.remove('copied');
+      }, 2500);
     });
-
-    const putJson = await putRes.json();
-    if (!putRes.ok) throw new Error(putJson.message || 'Erro ao publicar');
-
-    showAlert('success', '✅ Post publicado! Aparece no site em ~1 minuto.');
-    document.getElementById('titulo').value = '';
-    document.getElementById('resumo').value = '';
-    document.getElementById('data').value = new Date().toISOString().split('T')[0];
-
-  } catch (err) {
-    showAlert('error', '❌ Erro: ' + err.message + '. Verifique seu token.');
   }
 
-  btn.disabled = false;
-  btn.textContent = 'Publicar post';
-}
-
-init();
+  function novoPost() {
+    document.getElementById('resultado').style.display = 'none';
+    document.getElementById('tela-form').style.display = 'block';
+    carregarPosts();
+  }
 </script>
 </body>
 </html>
