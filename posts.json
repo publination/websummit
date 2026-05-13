@@ -1,18 +1,3 @@
-[
-  {
-    "id": 3,
-    "titulo": "TESTE 01",
-    "data": "2026-05-13",
-    "tag": "Painel",
-    "resumo": "teste teste teste"
-  },
-  {
-    "id": 2,
-    "titulo": "TESTE 01",
-    "data": "2026-05-13",
-    "tag": "Painel",
-    "resumo": "sssss"
-  },
   {
     "id": 1,
     "titulo": "Como adicionar um post aqui",
