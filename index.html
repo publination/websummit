@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>publi.nation × Web Summit Rio 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">publi<span class="dot">.</span>nation <span class="x">×</span> web summit</div>
+    <div class="nav-links">
+      <a href="#jogo">Jogo</a>
+      <a href="#conteudo">Conteúdo</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">🎯 Web Summit Rio 2026</span>
+      <h1>A Publi está <span class="gradient-text">no maior evento</span> de tech do mundo</h1>
+      <p>De 8 a 12 de junho, a Publi.nation está no Web Summit Rio. Jogue com a gente e acompanhe os melhores insights dos painéis — mesmo de longe.</p>
+      <div class="hero-ctas">
+        <a href="#jogo" class="btn-primary">Jogar agora</a>
+        <a href="#conteudo" class="btn-secondary">Ver conteúdos</a>
+      </div>
+    </div>
+    <div class="countdown-container">
+      <p class="countdown-label">O evento começa em</p>
+      <div class="countdown" id="countdown">
+        <div class="time-block">
+          <span id="days">00</span>
+          <label>dias</label>
+        </div>
+        <div class="time-sep">:</div>
+        <div class="time-block">
+          <span id="hours">00</span>
+          <label>horas</label>
+        </div>
+        <div class="time-sep">:</div>
+        <div class="time-block">
+          <span id="minutes">00</span>
+          <label>min</label>
+        </div>
+        <div class="time-sep">:</div>
+        <div class="time-block">
+          <span id="seconds">00</span>
+          <label>seg</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOGO -->
+  <section class="section-jogo" id="jogo">
+    <div class="section-header">
+      <span class="badge">🎮 Jogo</span>
+      <h2>Sente o clima do evento</h2>
+      <p>Experimente como é ser uma marca com afiliados. Você tem 60 segundos.</p>
+    </div>
+    <div class="game-wrapper">
+      <iframe
+        src="https://giu-sin.github.io/game/"
+        frameborder="0"
+        allowfullscreen
+        title="Publi.nation Game — Web Summit Rio 2026">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO -->
+  <section class="section-content" id="conteudo">
+    <div class="section-header">
+      <span class="badge">📋 Painéis</span>
+      <h2>Novidades direto do Web Summit</h2>
+      <p>Insights e tendências capturados nos painéis do evento, em tempo real.</p>
+    </div>
+    <div class="posts-grid" id="posts-grid"></div>
+    <div class="empty-state" id="empty-state" style="display:none">
+      <span>🎤</span>
+      <p>Em breve: conteúdos dos painéis do Web Summit Rio 2026</p>
+      <small>Volta aqui a partir de 8 de junho!</small>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">publi<span class="dot">.</span>nation</div>
+    <p>Agência de Marketing de Influência</p>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/publi.nation/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.publination.com.br" target="_blank" rel="noopener">Site</a>
+    </div>
+    <p class="footer-small">© 2026 Publi.nation · Web Summit Rio 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
